@@ -1,0 +1,128 @@
+{
+  "action_fingerprints": {
+    "action_listen": {
+      "slots": [
+        "event",
+        "proceso",
+        "password",
+        "matricula",
+        "calificacion"
+      ]
+    },
+    "action_login_form": {
+      "slots": [
+        "username",
+        "requested_slot",
+        "password"
+      ]
+    },
+    "utter_another_question": {
+      "slots": []
+    },
+    "action_ack_calificacion": {
+      "slots": []
+    },
+    "utter_you_should_ask": {
+      "slots": []
+    },
+    "utter_graduacion_sta_fecha": {
+      "slots": []
+    },
+    "utter_retiro_parcial_fecha": {
+      "slots": []
+    },
+    "action_ack_eventdate": {
+      "slots": []
+    },
+    "utter_default": {
+      "slots": []
+    },
+    "utter_ask_matricula": {
+      "slots": [
+        "requested_slot"
+      ]
+    },
+    "utter_indice_periodo": {
+      "slots": []
+    },
+    "utter_greet": {
+      "slots": []
+    },
+    "utter_event_not_found": {
+      "slots": []
+    },
+    "action_requisitos_pendientes": {
+      "slots": []
+    },
+    "utter_retiro_total_fecha": {
+      "slots": []
+    },
+    "utter_graduacion_sti_fecha": {
+      "slots": []
+    },
+    "action_look_asuetos": {
+      "slots": [
+        "asueto_count"
+      ]
+    },
+    "action_requisitos_cursados": {
+      "slots": []
+    },
+    "utter_indice_acumulado": {
+      "slots": []
+    },
+    "utter_bye": {
+      "slots": []
+    },
+    "utter_thank": {
+      "slots": []
+    },
+    "action_look_important": {
+      "slots": [
+        "importantes_count"
+      ]
+    },
+    "action_process_descripcion": {
+      "slots": []
+    },
+    "action_process_procedimiento": {
+      "slots": []
+    },
+    "action_look_event": {
+      "slots": [
+        "matching_events"
+      ]
+    },
+    "action_suggest": {
+      "slots": []
+    },
+    "utter_ack_number_importantes": {
+      "slots": []
+    },
+    "utter_happy": {
+      "slots": []
+    },
+    "action_default_fallback": {
+      "slots": []
+    },
+    "action_creditos_acumulados": {
+      "slots": []
+    },
+    "action_condicion_academica": {
+      "slots": []
+    }
+  },
+  "rasa_core": "0.11.3",
+  "python": "3.6.6",
+  "max_histories": [
+    null,
+    3,
+    3
+  ],
+  "ensemble_name": "rasa_core.policies.ensemble.SimplePolicyEnsemble",
+  "policy_names": [
+    "rasa_core.policies.fallback.FallbackPolicy",
+    "rasa_core.policies.memoization.MemoizationPolicy",
+    "rasa_core.policies.keras_policy.KerasPolicy"
+  ]
+}

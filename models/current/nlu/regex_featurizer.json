@@ -1,0 +1,6 @@
+[
+    {
+        "name": "matricula",
+        "pattern": "[0-9]{8}"
+    }
+]
