@@ -1,0 +1,328 @@
+intents:
+  # add your intents
+  - greet
+  - thank
+  - bye
+  - deny
+  - affirm
+  - informar
+  - pedir_info
+  - ofrecer_info
+  - query_date
+  - query_event
+  - query_process
+  - sorry
+  - query_asueto
+  - query_importantes
+  - count_asueto
+  - count_importante
+  - nonsense
+  - descripcion_proceso
+  - importancia_proceso
+  - penalidad_proceso
+  - advertencia_proceso
+  - procedimiento_proceso
+  - what_should_i_ask
+  - retiro_parcial
+  - retiro_total
+  - retiro_prematricula
+  - graduacion_sti
+  - graduacion_sta
+  - cuando_retiro
+  - cuando_graduacion
+  - mi_indice
+  - indice_acumulado
+  - indice_del_periodo
+  - condicion_academica
+  - requisitos_cursados
+  - requisitos_pendientes
+  - creditos_acumulados
+  - cuantas_calificacion
+  - Login
+
+entities:
+  - event
+  - date
+  - proceso
+  - calificacion
+
+slots:
+  # replace with your slots
+  event:
+    type: text
+  date:
+    type: text
+  matching_events:
+    type: list
+  username:
+    type: unfeaturized
+    initial_value: "humano"
+  asueto_count:
+    type: unfeaturized
+  importantes_count:
+    type: unfeaturized
+  proceso:
+    type: text
+  requested_slot:
+    type: unfeaturized
+  matricula:
+    type: text
+    initial_value: 20121917
+  password:
+    type: text
+  indice:
+    type: text
+  calificacion:
+    type: categorical
+    values:
+      - A
+      - B
+      - C
+      - D
+      - F
+      - R
+      - FN
+
+templates:
+  # templates the bot should respond with
+  utter_you_should_ask:
+    - text: "Puedes preguntarme cosas como: ¿Cuándo es la prematrícula?,  ¿Cuál es mi índice académico?,  ¿Qué son estudiantes especiales?, ¿En qué fecha es el retiro parcial?... Adelante!"
+    - text: "Puedo ofrecerte informacion académica acerca del calendario, procesos y sobre tu historial :). Adelante"
+    - text: "Puedes preguntarme cosas como: ¿Qué son bajas por prerrequisitos?,  ¿Cómo realizo la selección de asignaturas libres?, ¿Cuál es la penalidad para la graduación? "
+
+  utter_greet:
+    - text: "¡Hola {username}! Soy el bot regis. Puedes preguntarme cosas como: ¿Cuándo es la prematrícula?,  ¿Cuál es mi índice académico?,  ¿Qué son estudiantes especiales?... Adelante!"
+    - text: "¡Saludos {username}!. Soy regis. Puedo ofrecerte informacion académica acerca del calendario, procesos y sobre tu historial :) ¿En qué puedo ayudarte?"
+    - text: "¡Bienvenido {username}!. Soy el bot regis. Estoy aquí para ofrecerte información académica. Pregúntame acerca del calendario, procesos académicos o sobre tu historial. ¿Qué deseas saber?"
+
+  utter_ask_matricula:
+    - text: "Por favor, digita tu matricula sin espacios para continuar"
+    - text: "Por favor digitar tu matricula sin espacios ni guiones"
+
+
+  utter_ask_password:
+    - text: "Por favor digite su contraseña para continuar"
+    - text: "Por favor digite su contraseña para continuar, estará a salvo conmigo ;)"
+
+
+  utter_thank:
+    - "Por nada. Estoy para servirte!"
+    - "Es un placer ayudarte."
+    - "Fui creado para ayudarte"
+
+  utter_bye:
+    - text: "Adios {username}."
+    - text: "¡Bye-bye {username}!"
+    - text: "¡Hasta luego {username}!"
+    - text: "Hasta pronto, gracias por tu visita {username}!"
+
+  utter_sorry:
+    - text: "Lo siento pero por el momento no puedo ayudarte."
+    - text: "No tengo informacion suficiente para responderte."
+    - text: "No puedo responder tu inquietud, disculpa."
+
+  utter_date:
+    - "You have one incoming event: Prematricula"
+
+  utter_did_that_help:
+    - text: "¿Te sirvió de ayuda mi respuesta?"
+    - text: "¿Logré responder tu inquietud?"
+    - text: "¿Encontraste la información que buscabas?"
+
+  utter_happy:
+    - text: "Genial!"
+    - text: "Me alegra escuchar eso!"
+
+  utter_goodbye:
+    - text: "Bye"
+    - text: "Hasta luego!"
+    - text: "Adios!"
+
+  utter_ack_eventdate:
+    - text: "El evento {event} será el {date}"
+
+  utter_ack_prsnt_eventdate:
+    - text: "El evento {event} ya comenzó y finaliza el {date}"
+
+  utter_ask_username:
+    - text: "Por favor digite su nombre para iniciar:"
+
+  utter_another_question:
+    - text: "Tienes otra pregunta {username}?"
+    - text: "Necesitas saber algo mas {username}?"
+
+  utter_suggestions:
+    - text: "Creo que no entendí bien, quisiste decir:"
+    - text: "Por favor podrías ser mas específico? intenta con:"
+
+  utter_ack_asuetos:
+    - text: "Estos son los días asuetos que encontré: "
+
+  utter_ack_number_asuetos:
+    - text: "Hay {asueto_count} días asuetos"
+
+  utter_ack_importantes:
+    - text: "Estos son los días a tomar en cuenta: "
+
+  utter_ack_number_importantes:
+    - text: "Hay {importantes_count} días importantes "
+
+  utter_event_not_found:
+    - text: "Lo siento, no pude encontrar ese evento en el calendario. Intente con otro nombre"
+
+  utter_retiro_parcial_fecha:
+   - text: "La fecha límite para el retiro parcial es el 9 de Noviembre."
+
+  utter_retiro_total_fecha:
+  - text: "La fecha límite para el retiro total es el 23 de Noviembre."
+
+  utter_retiro_prematricula_fecha:
+  - text: "La fecha límite para el retiro de prematrícula es el 12 de Diciembre del 2018."
+
+  utter_cual_retiro:
+  - text: " ¿A cúal retiro te refieres?"
+    buttons:
+    - title: "Retiro Parcial"
+      payload: "retiro parcial"
+    - title: "Retiro Total"
+      payload: "retiro total"
+    - title: "Retiro de prematrícula"
+      payload: "retiro prematricula"
+
+  utter_graduacion_sti_fecha:
+   - text: "La ceremonia de la nonagésima novena graduación del Campus Santiago será el 2 de Febrero del 2019."
+
+  utter_graduacion_sta_fecha:
+  - text: "La ceremonia de la sexagésima sexta graduación del Campus Santo Tomás de Aquino será el 18 de Mayo del 2019."
+
+  utter_cual_graduacion:
+  - text: " ¿A cúal graduación te refieres?"
+    buttons:
+    - title: "graduación CSTI"
+      payload: "graduacion sti"
+    - title: "graduación CSTA"
+      payload: "graduacion sta"
+
+  utter_indice_acumulado:
+  - text: "Tu índice acumulado es 2.5."
+
+  utter_algo_mas:
+  - text: "¿Necesitas saber algo más?."
+  - text: "¿Quieres saber algo más?"
+
+  utter_indice_periodo:
+  - text: "Tu índice del período es 2.8."
+
+  utter_adelante:
+  - text: "Adelante, pregúntame cosas que necesites saber."
+  - text: "Adelante, pregúntame!."
+
+  utter_cual_indice:
+  - text: " ¿A cúal índice te refieres?"
+    buttons:
+    - title: "Índice acumulado"
+      payload: "indice acumulado"
+    - title: "Índice del período"
+      payload: "indice del periodo"
+
+  utter_default:
+    - text: "Lo siento, no entendí tu pregunta, intenta con otra"
+    - text: "Lo siento pero por el momento no puedo ayudarte."
+    - text: "No tengo información suficiente para responderte."
+    - text: "No puedo responder tu inquietud, disculpa."
+
+  utter_descripcion_proceso:
+    - text: "{descripcion}"
+
+  utter_importancia_proceso:
+    - text: "{importancia}"
+
+  utter_penalidad_proceso:
+    - text: "{penalidad}"
+
+  utter_advertencia_proceso:
+    - text: "{advertencia}"
+
+  utter_procedimiento_proceso:
+    - text: "{procedimiento}"
+
+  utter_indice:
+    - text: "su indice es de 3.0"
+
+  utter_disamb_intro:
+    - text: "oh no! me he confundido, quisiste decir:"
+
+  utter_condicion_academica:
+    - text: "Su condicion académica es: {condicion}."
+
+  utter_requisitos_pendientes:
+    - text: "Sus requisitos pendientes son: {requisitos} "
+
+  utter_requisitos_cursados:
+    - text: "Sus requisitos cursados son: "
+
+  utter_creditos_acumulados:
+    - text: "La cantidad de créditos acumulados actualmente es: {creditos}"
+
+  utter_welcome:
+    - text: "Bienvenido {username}! Puedes continuar preguntandome lo que quieres saber"
+
+actions:
+  # all the utter actions from the templates, plus any custom actions
+  - action_ack_calificacion
+  - action_ack_eventdate
+  - action_condicion_academica
+  - action_count_asuetos
+  - action_count_important
+  - action_creditos_acumulados
+  - action_login_form
+  - action_look_asuetos
+  - action_look_event
+  - action_look_important
+  - action_process_advertencia
+  - action_process_descripcion
+  - action_process_importancia
+  - action_process_penalidad
+  - action_process_procedimiento
+  - action_requisitos_cursados
+  - action_requisitos_pendientes
+  - action_suggest
+  - utter_ack_asuetos
+  - utter_ack_eventdate
+  - utter_ack_number_asuetos
+  - utter_ack_number_importantes
+  - utter_ack_prsnt_eventdate
+  - utter_adelante
+  - utter_algo_mas
+  - utter_another_question
+  - utter_ask_matricula
+  - utter_ask_password
+  - utter_ask_username
+  - utter_bye
+  - utter_condicion_academica
+  - utter_creditos_acumulados
+  - utter_cual_graduacion
+  - utter_cual_indice
+  - utter_cual_retiro
+  - utter_date
+  - utter_default
+  - utter_did_that_help
+  - utter_disamb_intro
+  - utter_event_not_found
+  - utter_goodbye
+  - utter_graduacion_sta_fecha
+  - utter_graduacion_sti_fecha
+  - utter_greet
+  - utter_happy
+  - utter_indice
+  - utter_indice_acumulado
+  - utter_indice_periodo
+  - utter_requisitos_cursados
+  - utter_requisitos_pendientes
+  - utter_retiro_parcial_fecha
+  - utter_retiro_prematricula_fecha
+  - utter_retiro_total_fecha
+  - utter_sorry
+  - utter_suggestions
+  - utter_thank
+  - utter_you_should_ask
