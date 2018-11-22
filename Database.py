@@ -10,7 +10,7 @@ class Database(object):
             # normally the db_credenials would be fetched from a config file or the enviroment
             try:
                 print('connecting to database...')
-                cls._instance.connection = MongoClient("mongodb://localhost:27017/")
+                cls._instance.connection = MongoClient("mongodb://209.97.156.51:27017/")
                 cls._instance.database = cls._instance.connection[db]
                 # cls._instance.collection = cls._instance.database[collection]
 
